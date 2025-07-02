@@ -1,0 +1,81 @@
+// Note: Swiper styles are imported in main.js to avoid SCSS deprecation warnings
+
+// Import variables and mixins
+@use 'utils/variables' as *;
+@use 'utils/mixins' as *;
+@use 'utils/reset';
+
+// Import components
+@use 'components/orientation-lock';
+@use 'components/gallery';
+@use 'components/video-player';
+
+// Import scenes
+@use 'scenes/intro';
+@use 'scenes/gallery-scene';
+@use 'scenes/video-scene';
+
+// Base styles
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Main application container
+.app {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+// Base style for scenes
+.scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    overflow: hidden;
+    
+    // Common background styles
+    .bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
+}
+
+// Responsive styles
+@include respond-to('mobile-small') {
+    html {
+        font-size: 14px;
+    }
+}
+
+@include respond-to('mobile') {
+    html {
+        font-size: 16px;
+    }
+}
+
+@include respond-to('tablet') {
+    html {
+        font-size: 18px;
+    }
+} 

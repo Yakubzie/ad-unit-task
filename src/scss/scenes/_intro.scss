@@ -1,0 +1,43 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+// Intro scene styles
+
+.scene--intro {
+    .intro__background {
+        @include full-cover;
+        z-index: $z-index-base;
+        
+        .bg-image {
+            filter: brightness(0.8);
+        }
+    }
+    
+    .intro__content {
+        @include center-absolute;
+        z-index: $z-index-content;
+        text-align: center;
+        width: 90%;
+        max-width: 500px;
+        
+        @include respond-to('tablet') {
+            max-width: 600px;
+        }
+    }
+    
+    .headline {
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+        margin: 0 auto;
+        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+        
+        @include respond-to('mobile') {
+            max-width: 300px;
+        }
+        
+        @include respond-to('tablet') {
+            max-width: 500px;
+        }
+    }
+} 

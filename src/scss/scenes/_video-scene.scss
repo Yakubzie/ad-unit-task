@@ -1,0 +1,21 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+// Video scene styles
+
+.scene--video {
+    .video__background {
+        @include full-cover;
+        z-index: $z-index-base;
+        
+        .bg-image {
+            filter: brightness(0.6) blur(2px);
+        }
+    }
+    
+    .video__content {
+        @include full-cover;
+        z-index: $z-index-content;
+        position: relative;
+    }
+} 

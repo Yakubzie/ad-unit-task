@@ -1,0 +1,66 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+// Orientation lock styles
+
+.orientation-lock {
+    @include full-cover;
+    @include center-flex;
+    background: rgba(0, 0, 0, 0.9);
+    color: $color-white;
+    z-index: $z-index-orientation-lock;
+    display: none;
+    
+    .orientation-message {
+        text-align: center;
+        padding: $spacing-xl;
+        
+        p {
+            font-size: 1.2rem;
+            margin-bottom: $spacing-lg;
+            font-weight: 500;
+        }
+        
+        .phone-icon {
+            font-size: 4rem;
+            animation: rotate-phone 2s ease-in-out infinite;
+        }
+    }
+    
+    &.active {
+        display: flex;
+        
+        .orientation-message {
+            animation: fade-in-bounce 0.5s ease-out;
+        }
+    }
+}
+
+// Phone rotation animation
+@keyframes rotate-phone {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-15deg);
+    }
+    75% {
+        transform: rotate(15deg);
+    }
+}
+
+// Entry animation with bounce
+@keyframes fade-in-bounce {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05) translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+} 

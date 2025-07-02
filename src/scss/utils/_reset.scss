@@ -1,0 +1,75 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// CSS Reset for better compatibility
+
+// Box-sizing normalization
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// Reset margins and padding
+* {
+    margin: 0;
+    padding: 0;
+}
+
+// Remove default list styles
+ul, ol {
+    list-style: none;
+}
+
+// Reset for links
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+// Reset for buttons
+button {
+    @include button-reset;
+}
+
+// Reset for images
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+// Reset for form elements
+input,
+textarea,
+select {
+    font: inherit;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+// Remove default webkit styles
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+}
+
+// Reset for video elements
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+// Hide hidden elements
+[hidden] {
+    display: none !important;
+}
+
+// Focus styles
+:focus {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+} 

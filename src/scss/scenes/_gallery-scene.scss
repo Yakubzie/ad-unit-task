@@ -1,0 +1,29 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+// Gallery scene styles
+
+.scene--gallery {
+    .gallery__background {
+        @include full-cover;
+        z-index: $z-index-base;
+        
+        .bg-image {
+            filter: brightness(0.8);
+        }
+    }
+    
+    .gallery__content {
+        @include full-cover;
+        z-index: $z-index-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: $spacing-lg;
+        
+        @include respond-to('tablet') {
+            padding: $spacing-xl;
+        }
+    }
+} 

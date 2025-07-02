@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="Interactive advertising unit">
+    <title>Ad Unit - Interactive Experience</title>
+</head>
+<body>
+    <!-- Orientation Lock Message -->
+    <div id="orientation-lock" class="orientation-lock">
+        <div class="orientation-message">
+            <p>Please rotate your device to portrait orientation</p>
+            <div class="phone-icon">📱</div>
+        </div>
+    </div>
+
+    <!-- Main Application Container -->
+    <div id="app" class="app">
+        <!-- Scene 1: Intro -->
+        <section id="intro-scene" class="scene scene--intro">
+            <div class="intro__background">
+                <img src="./assets/bg.jpg" alt="Background" class="bg-image">
+            </div>
+            <div class="intro__content">
+                <img src="./assets/headline.png" alt="Headline" class="headline">
+            </div>
+        </section>
+
+        <!-- Scene 2: Gallery -->
+        <section id="gallery-scene" class="scene scene--gallery">
+            <div class="gallery__background">
+                <img src="./assets/bg.jpg" alt="Background" class="bg-image">
+            </div>
+            <div class="gallery__content">
+                <div class="gallery-container">
+                    <div class="swiper gallery-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" data-slide="1">
+                                <img src="./assets/shoe1.png" alt="Shoe 1">
+                                <div class="slide__shadow">
+                                    <img src="./assets/shadow.png" alt="Shadow">
+                                </div>
+                            </div>
+                            <div class="swiper-slide" data-slide="2">
+                                <img src="./assets/shoe2.png" alt="Shoe 2">
+                                <div class="slide__shadow">
+                                    <img src="./assets/shadow.png" alt="Shadow">
+                                </div>
+                            </div>
+                            <div class="swiper-slide" data-slide="3">
+                                <img src="./assets/shoe3.png" alt="Shoe 3">
+                                <div class="slide__shadow">
+                                    <img src="./assets/shadow.png" alt="Shadow">
+                                </div>
+                            </div>
+                            <div class="swiper-slide" data-slide="4">
+                                <img src="./assets/shoe4.png" alt="Shoe 4">
+                                <div class="slide__shadow">
+                                    <img src="./assets/shadow.png" alt="Shadow">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="cta-container">
+                    <button class="cta-button">
+                        <img src="./assets/cta.png" alt="Call to Action">
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 3: Video -->
+        <section id="video-scene" class="scene scene--video">
+            <div class="video__background">
+                <img src="./assets/bg.jpg" alt="Background" class="bg-image">
+            </div>
+            <div class="video__content">
+                <div class="video-container">
+                    <video 
+                        id="product-video" 
+                        class="product-video" 
+                        muted 
+                        loop 
+                        playsinline
+                        preload="metadata"
+                    >
+                        <source src="./assets/video.mp4" type="video/mp4">
+                        Your browser does not support video playback.
+                    </video>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html> 

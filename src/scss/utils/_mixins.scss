@@ -1,0 +1,141 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+// Mixin for responsiveness
+@mixin respond-to($breakpoint) {
+    @if map.has-key($breakpoints, $breakpoint) {
+        @media (min-width: map.get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    } @else {
+        @warn "Breakpoint #{$breakpoint} does not exist in $breakpoints map";
+    }
+}
+
+// Mixin for max-width responsiveness
+@mixin respond-to-max($breakpoint) {
+    @if map.has-key($breakpoints, $breakpoint) {
+        @media (max-width: (map.get($breakpoints, $breakpoint) - 1px)) {
+            @content;
+        }
+    } @else {
+        @warn "Breakpoint #{$breakpoint} does not exist in $breakpoints map";
+    }
+}
+
+// Mixin for centering elements
+@mixin center-absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Mixin for text truncation
+@mixin truncate-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Mixin for hiding elements from screen readers only
+@mixin visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+// Mixin for aspect ratio
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    
+    &::before {
+        content: '';
+        display: block;
+        padding-top: ($height / $width) * 100%;
+    }
+    
+    > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// Mixin for smooth transitions
+@mixin smooth-transition($property: all, $duration: $duration-normal, $easing: $ease-in-out) {
+    transition: $property $duration $easing;
+}
+
+// Mixin for shadows
+@mixin shadow($size: 'md') {
+    @if $size == 'sm' {
+        box-shadow: $shadow-sm;
+    } @else if $size == 'md' {
+        box-shadow: $shadow-md;
+    } @else if $size == 'lg' {
+        box-shadow: $shadow-lg;
+    } @else if $size == 'xl' {
+        box-shadow: $shadow-xl;
+    }
+}
+
+// Mixin for hover effects
+@mixin hover-lift {
+    @include smooth-transition(transform);
+    
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+// Mixin for button reset
+@mixin button-reset {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: none;
+    
+    &:focus {
+        outline: 2px solid $color-primary;
+        outline-offset: 2px;
+    }
+}
+
+// Mixin for full coverage
+@mixin full-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+// Mixin for gradient overlay
+@mixin gradient-overlay($color1: rgba(0, 0, 0, 0.5), $color2: rgba(0, 0, 0, 0)) {
+    position: relative;
+    
+    &::after {
+        content: '';
+        @include full-cover;
+        background: linear-gradient(to bottom, $color1, $color2);
+        pointer-events: none;
+    }
+} 
